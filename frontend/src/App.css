@@ -11,12 +11,12 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: #f3bc75;
+  /* background: #f3bc75; */
 }
 
 .App-container .inside-app {
   width: 50%;
-  /* background: #7dcae9; */
+  background: #f5d377;
   display: flex;
   justify-content: center;
   align-items: center;

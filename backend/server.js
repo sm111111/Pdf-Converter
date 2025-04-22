@@ -13,10 +13,14 @@ app.use(cors({
 }));
 
 
+const _dirname = path.resolve()
+
+
 const uploadDir = "./uploads";
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir);
 }
+
 
 
 const storage = multer.diskStorage({
@@ -59,6 +63,12 @@ app.get("/uploads", (req, res) => {
         res.json({ files });
     });
 });
+
+app.use(express.static(path.join(_dirname, "/frontend/dist")))
+
+app.get('*', (req, res) => {
+    res.send(path.resolve(_dirname, "frontend", "dist", "index.html"))
+})
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
